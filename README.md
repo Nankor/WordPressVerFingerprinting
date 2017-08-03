@@ -1,6 +1,5 @@
 # WordPressVerFingerprinting
 Python for Programmers Course Final Project WordPress Version Fingerprinting
-Osman Pamuk
 ## INTRODUCTION
 WordPress is the most used content management (CMS) server in the world, and because of this, it is one of the most attacked CMS by the hackers. The first stage of a cyber-attack is to get more information about the target system, and for a CMS, the version of the CMS is the most valuable information. Because with version number one can see if a CMS is updated or not or if it has a major vulnerability or not. That’s why, for a security researcher to be able to determine the version of a CMS is an important problem. 
 There are many tools that are trying to determine the version of a WordPress CMS but many of these tools are only looking for certain keywords in HTTP header information to do that. This method obviously is not a very safe way. Because the HTTP header information can be easily changed and these changes will not affect the way the web server works at all. 
@@ -43,3 +42,13 @@ This method is needed to properly close database connection.
 
 ### Djongo-Rest Module (wpdetectapp/views.py, wpdetectapp/urls.py, urls.py)
 ‘urls.py’ and ‘wpdetectapp/urls.py’ just directs the request to view method in the ‘wpdetectapp/views.py’. ‘wpdetectapp/views.py’ has only one view method, detectversion(request). This method parse the request, if it is a post request and it has JSON body with the web domain name which we want to detect its version. If there is one, it creates an instance of FingerPrinting class, and calls detect method. Then, is returns the result in JSON format.
+
+##	OUTPUTS
+I used the python httpie module to test out my restful API service.
+Following screenshots show POST requests to my local Django web server which serves my restful API service and its result. For example, Figure 1 shows a request to detect the version of web server ‘xda-developers.com’, and the result shows that ‘xda-developers.com’ uses WordPress version “4.7.3”. 
+
+![alt text](https://github.com/Nankor/WordPressVerFingerprinting/blob/master/figures/fig1.png "Figure 1")
+![alt text](https://github.com/Nankor/WordPressVerFingerprinting/blob/master/figures/fig2.png "Figure 2")
+![alt text](https://github.com/Nankor/WordPressVerFingerprinting/blob/master/figures/fig3.png "Figure 3")
+![alt text](https://github.com/Nankor/WordPressVerFingerprinting/blob/master/figures/fig4.png "Figure 4")
+![alt text](https://github.com/Nankor/WordPressVerFingerprinting/blob/master/figures/fig5.png "Figure 5")
